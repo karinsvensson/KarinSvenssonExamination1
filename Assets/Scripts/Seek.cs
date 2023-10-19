@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class Seek : MonoBehaviour
 {
-    Spawn spawn;
-   // [SerializeField] GameObject Player;
+    [SerializeField] GameObject player;
     [SerializeField] float power;
-
-    private void Awake()
-    {
-        GameObject player = GameObject.Find("Player");
-        spawn = player.GetComponent<Spawn>();
-    }
 
     void FixedUpdate()
     {
-        GameObject moveTowardsThis = spawn.Player;
-        transform.position = Vector3.MoveTowards(transform.position, moveTowardsThis.transform.position, power);
+        if (player == null)
+        {
+            player = GameObject.Find("Player");
+        }
+
+        if (player != null)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, power);
+        }
+        else
+        {
+            // Handle the case where the "Player" GameObject is not found.
+            // You can log an error message or take other appropriate action.
+        }
     }
+
 }

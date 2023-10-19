@@ -5,7 +5,6 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
     [SerializeField] Transform[] SpawnPoints;
-
     [SerializeField] GameObject Antidote;
     [SerializeField] GameObject RedVirus;
     public GameObject Player;
@@ -15,13 +14,12 @@ public class Spawn : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("StartCoroutines", 10f, 2f);
+        InvokeRepeating("StartCoroutines", 3f, 3f);
     }
 
     private void Awake()
     {
         System.Random randomGen = new System.Random();
-
         Target = randomGen.Next(0, 3);
 
         if (GoodOnes.Length < 1)
@@ -29,23 +27,33 @@ public class Spawn : MonoBehaviour
             GoodOnes = GameObject.FindGameObjectsWithTag("GoodOnes");
         }
     }
+
     void StartCoroutines()
     {
         StartCoroutine(SpawnAntidoteRepeatedly());
         StartCoroutine(SpawnRedVirusRepeatedly());
     }
+
     private IEnumerator SpawnAntidoteRepeatedly()
     {
-        Instantiate(Antidote, transform.position, Quaternion.identity);
-        Destroy(this);
+        while (true)
+        {
+            int spawnPointIndex = Random.Range(0, SpawnPoints.Length);
+            Instantiate(Antidote, SpawnPoints[spawnPointIndex].position, Quaternion.identity);
 
-        yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
+        }
     }
+
     private IEnumerator SpawnRedVirusRepeatedly()
     {
-        Instantiate(RedVirus, transform.position, Quaternion.identity);
-        Destroy(this);
+        while (true)
+        {
+            int spawnPointIndex = Random.Range(0, SpawnPoints.Length);
+            Instantiate(RedVirus, SpawnPoints[spawnPointIndex].position, Quaternion.identity);
 
-        yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
+        }
     }
+
 }

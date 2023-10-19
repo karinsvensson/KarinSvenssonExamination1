@@ -3437,7 +3437,7 @@ MonoBehaviour:
   - {fileID: 730621802}
   Antidote: {fileID: 4748620403445591554, guid: 455ba93c4ad19f348ab8137d2552c293, type: 3}
   RedVirus: {fileID: 4675834888588143523, guid: 4e7a35af15a274a4fb80af080336878c, type: 3}
-  Player: {fileID: 0}
+  Player: {fileID: 2135749663}
   GoodOnes:
   - {fileID: 7147456449664586356}
   - {fileID: 7147456449770299275}
@@ -8581,13 +8581,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 596807335}
     m_Modifications:
     - target: {fileID: 4675834888588143520, guid: 4e7a35af15a274a4fb80af080336878c, type: 3}
-      propertyPath: power
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4675834888588143520, guid: 4e7a35af15a274a4fb80af080336878c, type: 3}
-      propertyPath: Player
+      propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2135749663}
     - target: {fileID: 4675834888588143523, guid: 4e7a35af15a274a4fb80af080336878c, type: 3}
       propertyPath: m_Name
       value: RedVirus
