@@ -4,18 +4,48 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    [SerializeField] Transform[] a;
-    [SerializeField] GameObject s;
-    
-    // Start is called before the first frame update
+    [SerializeField] Transform[] SpawnPoints;
+
+    [SerializeField] GameObject Antidote;
+    [SerializeField] GameObject RedVirus;
+    public GameObject Player;
+    public GameObject[] GoodOnes;
+
+    public int Target;
+
     void Start()
     {
-        InvokeRepeating("Dothis", 1, .5f);
+        InvokeRepeating("StartCoroutines", 10f, 2f);
     }
 
-    void Dothis()
+    private void Awake()
     {
-        Instantiate(a[4], transform.position, Quaternion.identity);
+        System.Random randomGen = new System.Random();
+
+        Target = randomGen.Next(0, 3);
+
+        if (GoodOnes.Length < 1)
+        {
+            GoodOnes = GameObject.FindGameObjectsWithTag("GoodOnes");
+        }
+    }
+    void StartCoroutines()
+    {
+        StartCoroutine(SpawnAntidoteRepeatedly());
+        StartCoroutine(SpawnRedVirusRepeatedly());
+    }
+    private IEnumerator SpawnAntidoteRepeatedly()
+    {
+        Instantiate(Antidote, transform.position, Quaternion.identity);
         Destroy(this);
+
+        yield return new WaitForSeconds(1);
+    }
+    private IEnumerator SpawnRedVirusRepeatedly()
+    {
+        Instantiate(RedVirus, transform.position, Quaternion.identity);
+        Destroy(this);
+
+        yield return new WaitForSeconds(1);
     }
 }

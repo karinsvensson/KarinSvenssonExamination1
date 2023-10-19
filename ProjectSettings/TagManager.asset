@@ -4,8 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - dontforgettoupdatethetag
-  - Virus
+  - RedVirus
+  - Antidote
+  - GoodOnes
   layers:
   - Default
   - TransparentFX
