@@ -5,10 +5,17 @@ using UnityEngine;
 public class PlayerMovementScript : MonoBehaviour
 {
     [SerializeField] float playerPower;
+    [SerializeField] float rotationSpeed = 720;
 
-    // Update is called once per frame
     void FixedUpdate()
     {
-        transform.Translate(Input.GetAxis("Horizontal") * playerPower, Input.GetAxis("Vertical") * playerPower, 0);
+        Vector2 movementDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        transform.Translate(movementDirection * playerPower, 0);
+
+        if(movementDirection != Vector2.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(Vector3.forward, movementDirection);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+        }
     }
 }

@@ -9,13 +9,20 @@ public class GoodOnesController : MonoBehaviour
         if (other.gameObject.tag == "RedVirus")
         {
             Destroy(other.gameObject);
-            transform.localScale += new Vector3(.5f,.5f,0);
+            if (transform.localScale.x < 5f && transform.localScale.y < 5f)
+            {
+                transform.localScale += new Vector3(.5f, .5f, 0);
+            }
+            
         }
 
         if (other.gameObject.tag == "Antidote")
         {
             Destroy(other.gameObject);
-            transform.localScale -= new Vector3(.5f, .5f, 0);
+            if (transform.localScale.x > 0.1f && transform.localScale.y > 0.1f)
+            {
+                transform.localScale -= new Vector3(.5f, .5f, 0);
+            }
         }
     }
 
@@ -23,5 +30,7 @@ public class GoodOnesController : MonoBehaviour
     {
         transform.localScale += new Vector3(Random.Range(-.002f,.002f), Random.Range(-.002f,.002f), Random.Range(0,0));
         transform.position = transform.position + new Vector3(Random.Range(-.01f,.01f), Random.Range(-.01f,.01f), Random.Range(0,0));
+        transform.Translate(.02f, 0, 0 * .1f);
+        transform.Rotate(0, 0, .2f, Space.Self);
     }
 }

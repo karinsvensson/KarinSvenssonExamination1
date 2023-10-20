@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5517035918968782494}
   - component: {fileID: 8862725063816669413}
   - component: {fileID: 7887660780140022286}
-  - component: {fileID: 5925793189676193376}
   - component: {fileID: 6554607365013590849}
   m_Layer: 0
   m_Name: Antidote
@@ -150,18 +149,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5925793189676193376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4748620403445591554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 702c45d9c902928439ae1e56d1d4679b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6554607365013590849
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,4 +161,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32ba8484a0abd5a48bd69859c037326c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GoodOnes: {fileID: 7147456450037998035, guid: 275f321c8d27c864a9752861f655b9ab, type: 3}
